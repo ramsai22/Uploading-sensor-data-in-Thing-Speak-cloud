@@ -73,6 +73,7 @@ Automatically act on your data and communicate using third-party services like T
 
 
 # PROGRAM:
+```
 #include"ThingSpeak.h"
 #include<WiFi.h>
 #include"DHT.h"
@@ -133,6 +134,7 @@ void loop() {
   delay(100);
 }
 
+```
 # CIRCUIT DIAGRAM:
 ![WhatsApp Image 2025-10-08 at 09 45 38_06431446](https://github.com/user-attachments/assets/55366b6b-c237-4324-b17b-8a5d7de6f9f8)
 
