@@ -139,6 +139,8 @@ void loop() {
 ![WhatsApp Image 2025-10-08 at 09 45 38_06431446](https://github.com/user-attachments/assets/55366b6b-c237-4324-b17b-8a5d7de6f9f8)
 
 # OUTPUT:
+<img width="1918" height="1078" alt="Screenshot 2025-10-08 093332" src="https://github.com/user-attachments/assets/6d895c88-3f21-410c-a101-e32a466c8295" />
+
 <img width="1917" height="1079" alt="Screenshot 2025-10-08 093412" src="https://github.com/user-attachments/assets/901c5c99-4c38-4309-ac63-7319a1df3152" />
 
 # RESULT:
