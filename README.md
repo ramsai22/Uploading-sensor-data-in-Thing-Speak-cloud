@@ -1,3 +1,5 @@
+# Name:paida ram sai
+# Reg no: 212223110034
 # Uploading temperature sensor data in Thing Speak cloud
 
 # AIM:
@@ -71,10 +73,71 @@ Automatically act on your data and communicate using third-party services like T
 
 
 # PROGRAM:
+#include"ThingSpeak.h"
+#include<WiFi.h>
+#include"DHT.h"
+
+
+char id[]="iPhone";
+char pass[]="hash1234";
+
+const int out=23;
+long T;
+float temperature=0;
+
+WiFiClient client;
+DHT dht(23,DHT11);
+
+unsigned long myChannelField=3087416;
+const int TemperatureField=1;
+const int HumidityField=2;
+const char* myWriteAPIKey="66UMITTA5XBGMVS6";
+
+void setup() 
+{
+  Serial.begin(115200);
+  pinMode(out,INPUT);
+  ThingSpeak.begin(client);
+  dht.begin();
+  delay(1000);
+}
+
+void loop() {
+  if(WiFi.status()!=WL_CONNECTED)
+  {
+    Serial.print("Attempting to connect to SSID:");
+    Serial.println(id);
+    while(WiFi.status()!=WL_CONNECTED)
+    {
+      WiFi.begin(id,pass);
+      Serial.print(".");
+      delay(5000);
+    }
+    Serial.println("\nConnected.");
+
+  }
+  float temperature=dht.readTemperature();
+  float humidity=dht.readHumidity();
+
+  Serial.print("Temperature:");
+  Serial.print(temperature);
+  Serial.println("c");
+
+  Serial.print("Humidity:");
+  Serial.print(humidity);
+  Serial.println("g.m-3");
+  ThingSpeak.setField(TemperatureField,temperature);
+  ThingSpeak.setField(HumidityField,humidity);
+  ThingSpeak.writeFields(myChannelField,myWriteAPIKey);
+  
+  delay(100);
+}
 
 # CIRCUIT DIAGRAM:
+![WhatsApp Image 2025-10-08 at 09 45 38_06431446](https://github.com/user-attachments/assets/55366b6b-c237-4324-b17b-8a5d7de6f9f8)
 
 # OUTPUT:
+<img width="1917" height="1079" alt="Screenshot 2025-10-08 093412" src="https://github.com/user-attachments/assets/901c5c99-4c38-4309-ac63-7319a1df3152" />
 
 # RESULT:
 
